@@ -1,0 +1,141 @@
+<style>
+div#d1{
+   
+    height: 100px;
+    width: 100px;
+    left: 0px;
+    position:absolute;
+    top: 0px;
+}
+div#d2{
+   
+   height: 100px;
+   width: 100px;
+   left: 120px;
+   position:absolute;
+   top: 500px;
+}
+div#d3{
+   
+   height: 100px;
+   width: 100px;
+   left: 570px;
+   position:absolute;
+   top: 500px;
+}
+div#d4{
+   
+   height: 100px;
+   width: 100px;
+   left:1020px;
+   position:absolute;
+   top: 500px;
+}
+div#d5{
+   
+   height: 100px;
+   width: 100px;
+   left: 120px;
+   position:absolute;
+   top: 600px;
+}
+div#d6{
+   
+   height: 100px;
+   width: 100px;
+   left: 570px;
+   position:absolute;
+   top: 600px;
+}
+div#d7{
+   
+   height: 100px;
+   width: 100px;
+   left:1020px;
+   position:absolute;
+   top: 600px;
+}
+div#d8{
+   
+   height: 100px;
+   width: 100px;
+   left: 620px;
+   position:absolute;
+   top: 115px;
+}
+
+</style>
+<script>
+    function reverse(){
+             document.getElementById("id8").innerHTML = '<img id="i8" src="supream.png" alt="Cinque Terre" width="300" height="270">';   
+             document.getElementById("i1").src = "main-base.jpg";
+
+      // border: 5px dotted red;
+      // var r = document.getElementById("d1");
+      // r.style.border="5px solid blue";
+      // r.style.width="200px";
+    }
+    function cmd(code) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET","http://192.168.99.101/cgi-bin/dicker.py?x="+code,true);
+        xhttp.send();
+        xhttp.onload=function (){
+             var output = xhttp.responseText
+             // var output= "hi hello"
+             document.getElementById("id8").innerHTML = output;
+             document.getElementById("i1").src = "main-base-faded.jpg";
+           }
+    }
+	function run(){
+            var d = prompt("please enter podname","mydeploy1");
+            var p = prompt("please enter image","centos");
+            var t = prompt("please enter tag",":latest");
+            cmd("kubectl run "+d+" --image="+p+t+" --kubeconfig admin.conf");
+    }
+	function create(){
+            var d = prompt("please enter podname","mydeploy1");
+            var p = prompt("please enter image","centos");
+            var t = prompt("please enter tag",":latest");
+            cmd("kubectl create deployment "+d+" --image="+p+t+" --kubeconfig admin.conf");
+    }
+	function delet() {
+            var p = prompt("please enter podname","mydeploy1");
+            cmd("kubectl delete pod "+d+" --kubeconfig admin.conf");
+    }
+	
+</script>
+<div id ='d1'onclick="reverse()">
+  <img id="i1" src="main-base.jpg" alt="Cinque Terre" width="1533" height="750">
+</div> 
+<div id ='d2'onclick="delet() ">
+   <img id="i2" src="docker-comitt.png" alt="Cinque Terre" width="465" height="170">
+</div>
+<div id ='d3'onclick="cmd('kubectl delete all --all --kubeconfig admin.conf') ">
+  <img id="i3" src="docker exec.png" alt="Cinque Terre" width="465" height="170">
+</div>
+<div id ='d4'onclick="cmd('docker ps') ">
+  <img id="i4" src="docker export.png" alt="Cinque Terre" width="465" height="170">
+</div>
+<div id ='d5'onclick="create() ">
+  <img id="i5" src="docker rm.png" alt="Cinque Terre" width="465" height="170">
+</div>
+<div id ='d6'onclick="run() ">
+  <img id="i6" src="docker run.png" alt="Cinque Terre" width="465" height="170">
+</div>
+<div id ='d7'onclick="cmd('kubectl get pods --kubeconfig admin.conf') ">
+  <img id="i7" src="docker images.png" alt="Cinque Terre" width="465" height="170">
+</div>
+
+<div id ='d8'onmouseover ="getElementById('i1').src='main-base-faded.jpg'" onmouseout ="getElementById('i1').src='main-base.jpg'">
+<pre id="id8" ><img id="i8" src="supream.png" alt="Cinque Terre" width="300" height="270"></pre>
+</div>
+  
+
+
+
+
+       
+
+    
+
+   
